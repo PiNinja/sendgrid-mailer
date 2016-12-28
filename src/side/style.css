@@ -29,6 +29,7 @@ input {
 .inputSection > label {
   flex: 0 0 250px;
   text-align: right;
+  margin-right: 0.5em;
 }
 .inputSection > input {
   flex: 1 1 auto;

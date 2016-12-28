@@ -38,6 +38,10 @@ require 'lib/SendGrid.php';
             <label for="APIkey">SendGrid API Key : </label>
             <input type="text" name="APIKey" id="APIKey" value="" placeholder="hwacwaWADSrndYAODJWC8HA">
         </p>
+        <p class="inputSection">
+            <label for="templateId">Template ID : </label>
+            <input type="text" name="templateId" id="templateId" value="" placeholder="kj3aw9876-5213-5dsf-9537-a1198af4378">
+        </p>
       </form>
     </main>
   </body>
