@@ -25,6 +25,7 @@ input {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: baseline;
+  margin-bottom: 0.5em;
 }
 .inputSection > label {
   flex: 0 0 250px;

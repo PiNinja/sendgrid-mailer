@@ -36,11 +36,31 @@ require 'lib/SendGrid.php';
       <form class="" action="/" method="post">
         <p class="inputSection">
             <label for="APIkey">SendGrid API Key : </label>
-            <input type="text" name="APIKey" id="APIKey" value="" placeholder="hwacwaWADSrndYAODJWC8HA">
+            <input type="text" name="APIKey" id="APIKey" value="" placeholder="hwacwaWADSrndYAODJWC8HA (required)">
         </p>
         <p class="inputSection">
             <label for="templateId">Template ID : </label>
-            <input type="text" name="templateId" id="templateId" value="" placeholder="kj3aw9876-5213-5dsf-9537-a1198af4378">
+            <input type="text" name="templateId" id="templateId" value="" placeholder="kj3aw9876-5213-5dsf-9537-a1198af4378 (required)">
+        </p>
+        <p class="inputSection">
+            <label for="category">Category : </label>
+            <input type="text" name="category" id="category" value="" placeholder="sent via https://sendgrid.14159.ninja/ (optional)">
+        </p>
+        <p class="inputSection">
+            <label for="subject">Subject : </label>
+            <input type="text" name="subject" id="subject" value="" placeholder="(optional)">
+        </p>
+        <p class="inputSection">
+            <label for="body">Body : </label>
+            <input type="text" name="body" id="body" value="" placeholder="(optional)">
+        </p>
+        <p class="inputSection">
+            <label for="from">From : </label>
+            <input type="text" name="from" id="from" value="" placeholder="my.email@domain.com (required)">
+        </p>
+        <p class="inputSection">
+            <label for="fromName">From Name : </label>
+            <input type="text" name="fromName" id="fromName" value="" placeholder="FirstName LastName(required)">
         </p>
       </form>
     </main>
