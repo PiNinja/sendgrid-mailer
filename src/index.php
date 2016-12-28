@@ -29,8 +29,13 @@ require 'lib/SendGrid.php';
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <?php
-    echo ("hello world");
-    ?>
+    <header class="padded">
+      SendGrid mailer
+    </header>
+    <main>
+      <form class="" action="/" method="post">
+        
+      </form>
+    </main>
   </body>
 </html>
