@@ -34,6 +34,7 @@ require 'lib/SendGrid.php';
     </header>
     <main class="padded wrapper">
       <form class="" action="/" method="post">
+        <h1>General settings</h1>
         <p class="inputSection">
             <label for="APIkey">SendGrid API Key : </label>
             <input type="text" name="APIKey" id="APIKey" value="" placeholder="hwacwaWADSrndYAODJWC8HA (required)">
@@ -61,6 +62,15 @@ require 'lib/SendGrid.php';
         <p class="inputSection">
             <label for="fromName">From Name : </label>
             <input type="text" name="fromName" id="fromName" value="" placeholder="FirstName LastName(required)">
+        </p>
+        <hr>
+        <h1>Recipients:</h1>
+        <p>
+          Recipients information in JSON format (<a href="https://github.com/PiNinja/sendgrid-mailer" target="_blank">see here for more infos</a>):
+        </p>
+        <textarea name="recipientsJSON" rows="8" placeholder="[{'email':'arthur.juchereau@gmail.com','name':'Arthur Juchereau'}]"></textarea>
+        <p class="inputSubmit">
+          <input type="submit" value="Send">
         </p>
       </form>
     </main>

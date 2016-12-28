@@ -36,3 +36,15 @@ input {
   flex: 1 1 auto;
   width:100%;
 }
+
+
+.inputSubmit{
+  display:flex;
+  flex-direction: row-reverse;;
+  flex-wrap: nowrap;
+  margin-bottom: 0.5em;
+}
+
+.inputSubmit > input {
+  flex:0 0 auto;
+}
