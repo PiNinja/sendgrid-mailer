@@ -21,6 +21,7 @@ hr{
 textarea{
   width:100%;
   margin:0.5em 0;
+  padding:0.5em;
 }
 a {
   color:#c0c0c0;
@@ -52,7 +53,6 @@ a {
   flex: 1 1 auto;
   width:100%;
 }
-
 
 .inputSubmit{
   display:flex;
