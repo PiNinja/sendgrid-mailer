@@ -24,9 +24,11 @@ input {
   display:flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-items: baseline;
 }
 .inputSection > label {
   flex: 0 0 250px;
+  text-align: right;
 }
 .inputSection > input {
   flex: 1 1 auto;
