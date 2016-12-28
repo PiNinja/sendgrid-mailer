@@ -26,7 +26,7 @@ require 'lib/SendGrid.php';
     <link href="/side/style.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/png" href="https://3.14159.ninja/favicon.png" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <script src="/vendor/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
   </head>
   <body>
     <?php
