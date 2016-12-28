@@ -34,7 +34,7 @@ require 'lib/SendGrid.php';
     </header>
     <main class="padded wrapper">
       <form class="" action="/" method="post">
-        <h1>General settings</h1>
+        <h1>General settings : </h1>
         <p class="inputSection">
             <label for="APIkey">SendGrid API Key : </label>
             <input type="text" name="APIKey" id="APIKey" value="" placeholder="hwacwaWADSrndYAODJWC8HA (required)">

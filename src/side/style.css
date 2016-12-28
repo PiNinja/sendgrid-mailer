@@ -10,6 +10,19 @@ input {
   padding:0.5em;
 }
 
+h1{
+  margin:1em 0;
+}
+
+hr{
+  margin:2em 0;
+}
+
+textarea{
+  width:100%;
+  margin:0.5em 0;
+}
+
 /* SPECIAL CLASSES */
 
 .wrapper{
