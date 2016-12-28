@@ -4,7 +4,7 @@
 
 body{
     background-color: black;
-    color:white;
+    color:#d0d0d0;
 }
 input {
   padding:0.5em;
@@ -21,6 +21,9 @@ hr{
 textarea{
   width:100%;
   margin:0.5em 0;
+}
+a {
+  color:#c0c0c0;
 }
 
 /* SPECIAL CLASSES */
