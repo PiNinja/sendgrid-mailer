@@ -29,12 +29,15 @@ require 'lib/SendGrid.php';
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header class="padded">
+    <header class="padded wrapper">
       SendGrid mailer
     </header>
-    <main>
+    <main class="padded wrapper">
       <form class="" action="/" method="post">
-        
+        <p class="inputSection">
+            <label for="APIkey">SendGrid API Key : </label>
+            <input type="text" name="APIKey" id="APIKey" value="" placeholder="hwacwaWADSrndYAODJWC8HA">
+        </p>
       </form>
     </main>
   </body>
