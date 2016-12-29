@@ -67,6 +67,7 @@ if(!empty($_POST['action'])){
     $request_body['content']['value'] = $values['body'];
 
     print_r($request_body);
+  }
   //reset values
   $values = $_POST;
 }
