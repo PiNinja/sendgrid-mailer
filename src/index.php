@@ -65,8 +65,8 @@ if(!empty($_POST['action'])){
     $request_body['from']['name'] = $values['fromName'];
     $request_body['reply_to']['email'] = $values['from'];
     $request_body['reply_to']['name'] = $values['fromName'];
-    $request_body['content'][0]['type'] = "text/plain";
-    $request_body['content'][0]['value'] = $values['body'];
+    //$request_body['content'][0]['type'] = "text/plain";
+    //$request_body['content'][0]['value'] = $values['body'];
     $request_body['template_id'] = $values['templateId'];
     $request_body['categories'] = array($values['category']);
     //$request_body = json_encode($request_body);
