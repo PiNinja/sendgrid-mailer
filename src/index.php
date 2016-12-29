@@ -47,7 +47,7 @@ if(!empty($_POST['action'])){
     $approved = array();
     foreach ($recipients as $recipient) {
       //get
-      if(filter_var($values['email'],FILTER_VALIDATE_EMAIL)){
+      if(filter_var($recipient['email'],FILTER_VALIDATE_EMAIL)){
         $recipient['why'] = "Email check failed";
         $rejected[] = $recipient;
       }
@@ -59,6 +59,7 @@ if(!empty($_POST['action'])){
         $approved[] = $recipient;
       }
     }
+    /*
     $email
         ->addTo(array('arthur@launchleap.com'))
         ->setSmtpapiTos($toSendGrid)
