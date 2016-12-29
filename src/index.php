@@ -55,7 +55,7 @@ if(!empty($_POST['action'])){
         $body[] = $values['body'];
         $toSendGrid[] = $recipient['email'];
         $fromName[] = $values['fromName'];
-        $approved = $recipient;
+        $approved[] = $recipient;
       }
     }
     $email
@@ -167,11 +167,11 @@ else{
       </form>
       <p>
         approved :
-        <?=print_r($approved)?>
+        <?echo print_r($approved); ?>
       </p>
       <p>
         rejected :
-        <?=print_r($rejected)?>
+        <?php echo print_r($rejected); ?>
       </p>
     </main>
   </body>
