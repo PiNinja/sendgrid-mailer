@@ -17,6 +17,18 @@ if(!empty($_POST['action'])){
     $error['fromName'] = true;
   }
 
+  //Check optionnal fields
+  if(empty($values['subject'])){
+    $values['subject'] = " ";
+  }
+  if(empty($values['body'])){
+    $values['body'] = " ";
+  }
+  if(empty($values['category'])){
+    $values['category'] = "Sent via the PiNinja at ".date("d/m/y H:i");
+  }
+
+
   require 'vendor/autoload.php';
   //require 'lib/SendGrid.php';
 }
