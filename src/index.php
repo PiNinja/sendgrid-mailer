@@ -52,7 +52,7 @@ if(!empty($_POST['action'])){
         $approved[] = $recipient;
         unset($personalisation);
         $personalisation = array(
-          "to" => array($recipient['email']),
+          "to" => array("email" => $recipient['email']),
           "subject" => $values['subject']
         );
         foreach ($recipient as $key => $value) {
@@ -65,8 +65,8 @@ if(!empty($_POST['action'])){
     $request_body['from']['name'] = $values['fromName'];
     $request_body['reply_to']['email'] = $values['from'];
     $request_body['reply_to']['name'] = $values['fromName'];
-    $request_body['content']['type'] = "text/plain";
-    $request_body['content']['value'] = $values['body'];
+    $request_body['content'][0]['type'] = "text/plain";
+    $request_body['content'][0]['value'] = $values['body'];
     $request_body['template_id'] = $values['templateId'];
     $request_body['categories'] = array($values['category']);
     //$request_body = json_encode($request_body);
@@ -122,7 +122,7 @@ else{
         <h1>General settings : </h1>
         <p class="inputSection">
             <label for="APIKey">SendGrid API Key : </label>
-            <input type="text" name="APIKey" id="APIKey" value="<?=$values['APIKey']?>" placeholder="hwacwaWADSrndYAODJWC8HA (required)" <?=(empty($error['APIKey'])?:'class="error"')?>>
+            <input type="text" name="APIKey" id="APIKey" value="<?=$values['APIKey']?>" placeholder="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 (required)" <?=(empty($error['APIKey'])?:'class="error"')?>>
         </p>
         <p class="inputSection">
             <label for="templateId">Template ID : </label>
