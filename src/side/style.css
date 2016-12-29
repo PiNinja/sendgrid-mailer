@@ -54,7 +54,7 @@ a {
   width:100%;
 }
 .inputSection > input.error {
-  background-color:#d0ffff;
+  background-color:#ffd0d0;
 }
 
 .inputSubmit{
