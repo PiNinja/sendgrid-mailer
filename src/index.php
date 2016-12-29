@@ -52,7 +52,7 @@ if(!empty($_POST['action'])){
         $approved[] = $recipient;
         unset($personalisation);
         $personalisation = array(
-          "to" => array("email" => $recipient['email']),
+          "to" => array(array("email" => $recipient['email'])),
           "subject" => $values['subject']
         );
         foreach ($recipient as $key => $value) {
