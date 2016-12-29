@@ -7,6 +7,15 @@ if(!empty($_POST['action'])){
   if(empty($values['APIKey'])){
     $error['APIKey'] = true;
   }
+  if(empty($values['templateId'])){
+    $error['templateId'] = true;
+  }
+  if(empty($values['from'])){
+    $error['from'] = true;
+  }
+  if(empty($values['fromName'])){
+    $error['fromName'] = true;
+  }
 
   require 'vendor/autoload.php';
   //require 'lib/SendGrid.php';
@@ -57,7 +66,7 @@ else{
         </p>
         <p class="inputSection">
             <label for="templateId">Template ID : </label>
-            <input type="text" name="templateId" id="templateId" value="<?=$values['templateId']?>" placeholder="kj3aw9876-5213-5dsf-9537-a1198af4378 (required)">
+            <input type="text" name="templateId" id="templateId" value="<?=$values['templateId']?>" placeholder="kj3aw9876-5213-5dsf-9537-a1198af4378 (required)" <?=(empty($error['templateId'])?:'class="error"')?>>
         </p>
         <p class="inputSection">
             <label for="category">Category : </label>
@@ -73,11 +82,11 @@ else{
         </p>
         <p class="inputSection">
             <label for="from">From : </label>
-            <input type="text" name="from" id="from" value="<?=$values['from']?>" placeholder="my.email@domain.com (required)">
+            <input type="text" name="from" id="from" value="<?=$values['from']?>" placeholder="my.email@domain.com (required)" <?=(empty($error['from'])?:'class="error"')?>>
         </p>
         <p class="inputSection">
             <label for="fromName">From Name : </label>
-            <input type="text" name="fromName" id="fromName" value="<?=$values['fromName']?>" placeholder="FirstName LastName(required)">
+            <input type="text" name="fromName" id="fromName" value="<?=$values['fromName']?>" placeholder="FirstName LastName(required)" <?=(empty($error['fromName'])?:'class="error"')?>>
         </p>
         <hr>
         <h1>Recipients:</h1>

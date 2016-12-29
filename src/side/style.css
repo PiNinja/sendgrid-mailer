@@ -52,6 +52,7 @@ a {
 .inputSection > input {
   flex: 1 1 auto;
   width:100%;
+  border:none;
 }
 .inputSection > input.error {
   background-color:#ffd0d0;
@@ -66,4 +67,5 @@ a {
 
 .inputSubmit > input {
   flex:0 0 auto;
+  border:none;
 }
