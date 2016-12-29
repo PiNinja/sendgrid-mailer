@@ -9,7 +9,7 @@ if(!empty($_POST['action'])){
   }
 
   require 'vendor/autoload.php';
-  require 'lib/SendGrid.php';
+  //require 'lib/SendGrid.php';
 }
 else{
   $values = array(
