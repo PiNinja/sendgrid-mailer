@@ -167,11 +167,11 @@ else{
       </form>
       <p>
         approved :
-        <?echo print_r($approved); ?>
+        <?php var_dump($approved); ?>
       </p>
       <p>
         rejected :
-        <?php echo print_r($rejected); ?>
+        <?php var_dump($rejected); ?>
       </p>
     </main>
   </body>
