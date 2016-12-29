@@ -65,7 +65,7 @@ if(!empty($_POST['action'])){
     //$request_body['from']['name'] = $values['fromName'];
     $request_body['content']['type'] = "text/plain";
     $request_body['content']['value'] = $values['body'];
-
+    $request_body = json_encode($request_body);
     print_r($request_body);
   }
   //reset values
