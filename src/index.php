@@ -56,17 +56,26 @@ if(!empty($_POST['action'])){
           "subject" => $values['subject']
         );
         foreach ($recipient as $key => $value) {
-          $personalisation['substitutions'][$key] = $value;
+          $personalisation['substitutions']["-".$key."-"] = $value;
         }
         $request_body['personalizations'][] = $personalisation;
       }
     }
     $request_body['from']['email'] = $values['from'];
-    //$request_body['from']['name'] = $values['fromName'];
+    $request_body['from']['name'] = $values['fromName'];
+    $request_body['reply_to']['email'] = $values['from'];
+    $request_body['reply_to']['name'] = $values['fromName'];
     $request_body['content']['type'] = "text/plain";
     $request_body['content']['value'] = $values['body'];
-    $request_body = json_encode($request_body);
+    $request_body['template_id'] = $values['templateId'];
+    $request_body['categories'] = array($values['category']);
+    //$request_body = json_encode($request_body);
     print_r($request_body);
+    $sg = new \SendGrid($values['APIKey']);
+    $response = $sg->client->mail()->send()->post($request_body);
+    echo $response->statusCode();
+    echo $response->body();
+    echo $response->headers();
   }
   //reset values
   $values = $_POST;
