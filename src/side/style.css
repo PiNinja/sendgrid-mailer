@@ -37,6 +37,9 @@ a {
 .padded {
   padding:2em;
 }
+.error {
+  background-color:#ffd0d0;
+}
 .inputSection{
   display:flex;
   flex-direction: row;
@@ -53,9 +56,6 @@ a {
   flex: 1 1 auto;
   width:100%;
   border:none;
-}
-.inputSection > input.error {
-  background-color:#ffd0d0;
 }
 
 .inputSubmit{

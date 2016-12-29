@@ -28,9 +28,19 @@ if(!empty($_POST['action'])){
     $values['category'] = "Sent via the PiNinja at ".date("d/m/y H:i");
   }
 
+  //check recipients
+  $recipients = json_decode($values['recipientsJSON']);
+  if(empty($recipients)){
+    $error['recipientsJSON'] = true;
+  }
+
+
 
   require 'vendor/autoload.php';
   //require 'lib/SendGrid.php';
+
+  //reset values
+  $values = $_POST;
 }
 else{
   $values = array(
@@ -105,7 +115,7 @@ else{
         <p>
           Recipients information in JSON format (<a href="https://github.com/PiNinja/sendgrid-mailer" target="_blank">see here for more infos</a>):
         </p>
-        <textarea name="recipientsJSON" rows="8" placeholder="[{'email':'arthur.juchereau@gmail.com','name':'Arthur Juchereau'}]"><?=$values['JSONrecipient']?></textarea>
+        <textarea name="recipientsJSON" rows="8" placeholder="[{'email':'arthur.juchereau@gmail.com','name':'Arthur Juchereau'}]" <?=(empty($error['recipientsJSON'])?:'class="error"')?>><?=$values['JSONrecipient']?></textarea>
         <p class="inputSubmit">
           <input type="submit" value="Send">
         </p>
