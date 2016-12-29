@@ -2,8 +2,8 @@
 // Logic side
 //Check if action is set
 if(!empty($_POST['action'])){
-  print_r($values);
   $values = $_POST;
+  print_r($values);
   //Check for required fields
   if(empty($values['APIKey'])){
     $error['APIKey'] = true;
