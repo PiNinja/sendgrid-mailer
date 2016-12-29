@@ -35,10 +35,55 @@ if(!empty($_POST['action'])){
   }
 
 
+  if(empty($error)){
+    require 'vendor/autoload.php';
+    //require 'lib/SendGrid.php';
+    $email = new SendGrid\Email();
+    $subject = array();
+    $body = array();
+    $fromName = array();
+    $rejected = array();
+    $approved = array();
+    foreach ($recipients as $recipient) {
+      //get
+      if(filter_var($values['email'],FILTER_VALIDATE_EMAIL)){
+        $recipient['why'] = "Email check failed";
+        $rejected[] = $recipient;
+      }
+      else{
+        $subject[] = $values['subject'];
+        $body[] = $values['body'];
+        $toSendGrid[] = $recipient['email'];
+        $fromName[] = $values['fromName'];
+        $approved = $recipient;
+      }
+    }
+    $email
+        ->addTo(array('arthur@launchleap.com'))
+        ->setSmtpapiTos($toSendGrid)
+        ->setFrom('arthur@launchleap.com')
+        ->setFromName($arthurLL)
+        ->setSubject($subject)
+        ->setText($body)
+        ->setHtml($body)
+        ->addFilter('templates', 'enabled', 1)
+        ->addFilter('templates', 'template_id', $templateId)
+        ->setSendAt($timethen)
+        ->addSubstitution("-name-", $toSendGrid)
+        ->addSubstitution("-datepresent-", $timenowSendGrid)
+        ->addSubstitution("-datefutur-", $timethenSendGrid)
+        //->addSubstitution("-owner-", $owner)
+        //->addSubstitution("-campaign-", $campaign)
+        //->addSubstitution("-comment-", $comment)
+        //->addSubstitution("-answer-", $answer)
+        //->addSubstitution("-company-", $company)
+        ->addUniqueArg('type', 'future')
+        ->addCategory('test Send in the future');
 
-  require 'vendor/autoload.php';
-  //require 'lib/SendGrid.php';
-
+    /*if($sendgrid->send($email)){
+      echo("hoho$i<br>");
+    }*/
+  }
   //reset values
   $values = $_POST;
 }
@@ -120,6 +165,14 @@ else{
           <input type="submit" value="Send">
         </p>
       </form>
+      <p>
+        approved :
+        <?=print_r($approved)?>
+      </p>
+      <p>
+        rejected :
+        <?=print_r($rejected)?>
+      </p>
     </main>
   </body>
 </html>
