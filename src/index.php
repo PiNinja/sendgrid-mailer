@@ -3,7 +3,6 @@
 //Check if action is set
 if(!empty($_POST['action'])){
   $values = $_POST;
-  print_r($values);
   //Check for required fields
   if(empty($values['APIKey'])){
     $error['APIKey'] = true;
@@ -34,15 +33,12 @@ if(!empty($_POST['action'])){
   if(empty($recipients)){
     $error['recipientsJSON'] = true;
   }
-  print_r($recipients);
 
   if(empty($error)){
     require 'vendor/autoload.php';
-    //require 'lib/SendGrid.php';
-    $email = new SendGrid\Email();
-    $subject = array();
-    $body = array();
-    $fromName = array();
+
+    //generate request_body
+    $request_body = array();
     $rejected = array();
     $approved = array();
     foreach ($recipients as $recipient) {
@@ -52,40 +48,25 @@ if(!empty($_POST['action'])){
         $rejected[] = $recipient;
       }
       else{
-        $subject[] = $values['subject'];
-        $body[] = $values['body'];
-        $toSendGrid[] = $recipient['email'];
         $fromName[] = $values['fromName'];
         $approved[] = $recipient;
+        unset($personalisation);
+        $personalisation = array(
+          "to" => array($recipient['email']),
+          "subject" => $values['subject']
+        );
+        foreach ($recipient as $key => $value) {
+          $personalisation['substitutions'][$key] = $value;
+        }
+        $request_body['personalizations'][] = $personalisation;
       }
     }
-    /*
-    $email
-        ->addTo(array('arthur@launchleap.com'))
-        ->setSmtpapiTos($toSendGrid)
-        ->setFrom('arthur@launchleap.com')
-        ->setFromName($arthurLL)
-        ->setSubject($subject)
-        ->setText($body)
-        ->setHtml($body)
-        ->addFilter('templates', 'enabled', 1)
-        ->addFilter('templates', 'template_id', $templateId)
-        ->setSendAt($timethen)
-        ->addSubstitution("-name-", $toSendGrid)
-        ->addSubstitution("-datepresent-", $timenowSendGrid)
-        ->addSubstitution("-datefutur-", $timethenSendGrid)
-        //->addSubstitution("-owner-", $owner)
-        //->addSubstitution("-campaign-", $campaign)
-        //->addSubstitution("-comment-", $comment)
-        //->addSubstitution("-answer-", $answer)
-        //->addSubstitution("-company-", $company)
-        ->addUniqueArg('type', 'future')
-        ->addCategory('test Send in the future');
+    $request_body['from']['email'] = $values['from'];
+    //$request_body['from']['name'] = $values['fromName'];
+    $request_body['content']['type'] = "text/plain";
+    $request_body['content']['value'] = $values['body'];
 
-    /*if($sendgrid->send($email)){
-      echo("hoho$i<br>");
-    }*/
-  }
+    print_r($request_body);
   //reset values
   $values = $_POST;
 }
