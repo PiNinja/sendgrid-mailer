@@ -30,7 +30,7 @@ if(!empty($_POST['action'])){
   }
 
   //check recipients
-  $recipients = json_decode($values['recipientsJSON']);
+  $recipients = json_decode($values['recipientsJSON'],true);
   if(empty($recipients)){
     $error['recipientsJSON'] = true;
   }
