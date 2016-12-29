@@ -33,7 +33,7 @@ if(!empty($_POST['action'])){
   if(empty($recipients)){
     $error['recipientsJSON'] = true;
   }
-  print_r($recipients);
+  print_r($values['recipientsJSON']);
 
   if(empty($error)){
     require 'vendor/autoload.php';
