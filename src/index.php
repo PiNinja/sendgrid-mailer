@@ -2,6 +2,7 @@
 // Logic side
 //Check if action is set
 if(!empty($_POST['action'])){
+  print_r($values);
   $values = $_POST;
   //Check for required fields
   if(empty($values['APIKey'])){
@@ -33,7 +34,7 @@ if(!empty($_POST['action'])){
   if(empty($recipients)){
     $error['recipientsJSON'] = true;
   }
-  print_r($values['recipientsJSON']);
+  print_r($recipients);
 
   if(empty($error)){
     require 'vendor/autoload.php';
