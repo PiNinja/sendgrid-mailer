@@ -10,7 +10,7 @@ if(!empty($_POST['action'])){
   if(empty($values['templateId'])){
     $error['templateId'] = true;
   }
-  if(empty($values['from'])){
+  if(empty($values['from']) && filter_var($values['from'],FILTER_VALIDATE_EMAIL)){
     $error['from'] = true;
   }
   if(empty($values['fromName'])){
