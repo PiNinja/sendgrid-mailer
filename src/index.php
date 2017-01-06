@@ -112,16 +112,19 @@ else{
   <body>
     <header class="padded wrapper">
       SendGrid mailer
-    </header>
-    <aside class="">
-      <?php
+    </header><?php
       if(!empty($response)){
+        ?>
+    <aside class="padded wrapper">
+          <?php
         echo $response->statusCode();
         echo $response->body();
         echo $response->headers();
+        ?>
+        </aside>
+        <?php
       }
-      ?>
-    </aside>
+    ?>
     <main class="padded wrapper">
       <form class="" action="/" method="post">
         <input type="hidden" name="action" value="send">
@@ -164,14 +167,16 @@ else{
           <input type="submit" value="Send">
         </p>
       </form>
-      <p>
-        approved :
-        <?php print_r($approved); ?>
-      </p>
+      <?php
+      if(!empty($rejeceted)){
+      ?>
       <p>
         rejected :
-        <?php print_r($rejected); ?>
+        <?php echo json_encode($rejected); ?>
       </p>
+      <?php
+      }
+      ?>
     </main>
   </body>
 </html>
