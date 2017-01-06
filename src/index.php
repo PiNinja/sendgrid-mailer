@@ -162,13 +162,13 @@ else{
         <p>
           Recipients information in JSON format (<a href="https://github.com/PiNinja/sendgrid-mailer" target="_blank">see here for more infos</a>):
         </p>
-        <textarea name="recipientsJSON" rows="8" placeholder='[{"email":"arthur.juchereau@gmail.com","name":"Arthur Juchereau"}]' <?=(empty($error['recipientsJSON'])?:'class="error"')?>><?=$values['recipientsJSON']?></textarea>
+        <textarea name="recipientsJSON" rows="8" placeholder='[{"email":"recipient.email@domain.com","name":"Arthur Juchereau"}]' <?=(empty($error['recipientsJSON'])?:'class="error"')?>><?=$values['recipientsJSON']?></textarea>
         <p class="inputSubmit">
           <input type="submit" value="Send">
         </p>
       </form>
       <?php
-      if(!empty($rejeceted)){
+      if(!empty($rejected)){
       ?>
       <p>
         rejected :
